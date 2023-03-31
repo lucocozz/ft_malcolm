@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:42:30 by lucocozz          #+#    #+#             */
-/*   Updated: 2023/03/29 12:49:37 by lucocozz         ###   ########.fr       */
+/*   Updated: 2023/03/31 21:18:04 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@
 # include <ifaddrs.h>
 # include <string.h>
 # include <stdio.h>
+
+# define ERR_USAGE "Usage: ./ft_malcolm <source ip> <source mac address> <target ip> <target mac address>\n"
 
 #endif
