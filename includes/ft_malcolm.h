@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:42:30 by lucocozz          #+#    #+#             */
-/*   Updated: 2023/03/31 21:18:04 by lucocozz         ###   ########.fr       */
+/*   Updated: 2023/04/10 18:50:50 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <signal.h>
 # include <arpa/inet.h>
 # include <netinet/in.h>
+# include <net/if_arp.h>
 # include <netdb.h>
 # include <ifaddrs.h>
 # include <string.h>
