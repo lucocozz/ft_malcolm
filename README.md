@@ -10,3 +10,4 @@ http://blog.zorinaq.com/a-more-powerful-stealthier-and-uncommon-arp-poisoning-te
 https://manpages.ubuntu.com/manpages/trusty/man5/etter.conf.5.html  
 https://linuxconfig.org/how-to-turn-on-off-ip-forwarding-in-linux  
 https://github.com/byt3bl33d3r/arpspoof/blob/master/arpspoof/arpspoof.py  
+https://man7.org/linux/man-pages/man7/packet.7.html

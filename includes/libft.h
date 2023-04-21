@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:59:06 by user42            #+#    #+#             */
-/*   Updated: 2023/03/14 15:58:14 by lucocozz         ###   ########.fr       */
+/*   Updated: 2023/04/21 13:58:10 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ void	ft_bzero(void *s, size_t n);
 double	ft_sqrt(double n);
 char	*ft_strcpy(char *dest, char *src);
 void	*ft_memcpy(void *dest, void const *src, size_t n);
+void	ft_memset(void *mem, int c, size_t n);
 
 #endif

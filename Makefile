@@ -6,13 +6,22 @@
 #    By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/30 15:23:20 by lucocozz          #+#    #+#              #
-#    Updated: 2023/03/28 19:49:45 by lucocozz         ###   ########.fr        #
+#    Updated: 2023/04/21 15:36:56 by lucocozz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ft_malcolm
 
-SRCS =	main.c
+SRCS =	main.c					\
+		$(_DISPLAY)				\
+		$(_NETWORK)				\
+		$(_LIBS)
+
+_DISPLAY =	print_mac_address.c	\
+			print_ip_address.c	\
+			print_ether_arp.c	\
+
+_NETWORK =	mac_str_to_binary.c
 
 _LIBS = libft.c
 
@@ -39,7 +48,7 @@ ifeq ($(DEBUG), on)
 endif
 LDFLAGS = $(LIBS:%=-L lib%) $(LIBS:%=-l%)
 
-vpath %.c	$(addprefix $(SRCS_DIR), /.) $(addprefix $(LIBS_DIR), /.)
+vpath %.c	$(addprefix $(SRCS_DIR), /. /libs /display /network)
 
 all:
 	$(foreach LIB, ${LIBS}, ${MAKE} -C lib${LIB} ;)

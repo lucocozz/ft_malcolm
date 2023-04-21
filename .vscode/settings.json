@@ -3,6 +3,7 @@
 		".env": "plaintext",
 		"netdb.h": "c",
 		"ft_malcolm.h": "c",
-		"if_arp.h": "c"
+		"if_arp.h": "c",
+		"if_ether.h": "c"
 	}
 }
