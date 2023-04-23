@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:59:06 by user42            #+#    #+#             */
-/*   Updated: 2023/04/21 13:58:10 by lucocozz         ###   ########.fr       */
+/*   Updated: 2023/04/23 16:23:23 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,14 @@ long	ft_atol(const char *str);
 float	ft_atof(const char *str);
 bool	ft_is_integer(const char *str);
 bool	ft_is_float(const char *str);
+int		ft_isxdigit(int c);
+int		ft_isdigit(int c);
+int		ft_tolower(int c);
 void	ft_bzero(void *s, size_t n);
 double	ft_sqrt(double n);
 char	*ft_strcpy(char *dest, char *src);
 void	*ft_memcpy(void *dest, void const *src, size_t n);
 void	ft_memset(void *mem, int c, size_t n);
+int		ft_memcmp(const void* s1, const void* s2, size_t n);
 
 #endif

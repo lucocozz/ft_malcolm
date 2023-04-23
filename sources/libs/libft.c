@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:58:25 by user42            #+#    #+#             */
-/*   Updated: 2023/04/21 13:57:51 by lucocozz         ###   ########.fr       */
+/*   Updated: 2023/04/23 16:23:31 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,23 @@ int	ft_atoi(const char *str)
 	for (; str[i] >= '0' && str[i] <= '9'; ++i)
 		value = value * 10 + (str[i] - '0');
 	return (sign * value);
+}
+
+int ft_isdigit(int c)
+{
+    return (c >= '0' && c <= '9');
+}
+
+int	ft_isxdigit(int c)
+{
+    return (ft_isdigit(c) || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F'));
+}
+
+int ft_tolower(int c)
+{
+    if (c >= 'A' && c <= 'Z')
+        return (c + ('a' - 'A'));
+    return (c);
 }
 
 long	ft_atol(const char *str)
@@ -196,3 +213,14 @@ void	ft_memset(void *mem, int c, size_t n)
 		ptr[i] = c;
 }
 
+int	ft_memcmp(const void* s1, const void* s2, size_t n)
+{
+    const u_char *p1 = (const u_char*)s1;
+    const u_char *p2 = (const u_char*)s2;
+
+    for (size_t i = 0; i < n; i++) {
+        if (p1[i] != p2[i])
+            return (p1[i] - p2[i]);
+    }
+    return (0);
+}

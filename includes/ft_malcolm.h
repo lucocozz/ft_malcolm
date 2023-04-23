@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:42:30 by lucocozz          #+#    #+#             */
-/*   Updated: 2023/04/21 15:41:59 by lucocozz         ###   ########.fr       */
+/*   Updated: 2023/04/23 16:33:07 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@
 # define BROADCAST_MAC_ADDR "ff:ff:ff:ff:ff:ff"
 # define NULL_MAC_ADDR "00:00:00:00:00:00"
 
+# define EXIT_ERROR 2
+
 # define ERR_USAGE "Usage: ./ft_malcolm <source ip> <source mac address> <target ip> <target mac address>\n"
 
 struct ether_hdr {
@@ -66,6 +68,27 @@ struct ether_arp {
 	struct arp_hdr		arp;
 } __attribute__ ((__packed__));
 
+typedef struct s_cli {
+	char	*sender_hardware;
+	char	*sender_ip;
+	char	*target_hardware;
+	char	*target_ip;
+}	t_cli;
+
+extern bool g_running;
+
+/*  ARP  */
+int		send_arp(int sock, t_cli cli, void (*fill_header)(struct ether_arp*, t_cli));
+int		recv_arp_from_ip(int sock, struct ether_arp *packet, const char *from_ip);
+void	arp_request(struct ether_arp *packet, t_cli cli);
+void	arp_reply(struct ether_arp *packet, t_cli cli);
+void	poisoned_arp_request(struct ether_arp *packet, t_cli cli);
+
+
+
+/*  Cli  */
+t_cli	get_cli(int argc, char **argv);
+
 
 /*  Display  */
 void	print_ether_arp(struct ether_arp packet);
@@ -74,6 +97,12 @@ void	print_ip_address(u_int8_t* ip_address);
 
 
 /*  Network  */
-int	mac_str_to_binary(const char *str, unsigned char *binary);
+int		mac_str_to_binary(const char *str, unsigned char *binary);
+bool	is_mac_address(const char *str);
+bool	is_ip_address(const char *str);
+
+
+/*  Signals  */
+void	set_signals(void);
 
 #endif

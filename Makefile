@@ -6,22 +6,37 @@
 #    By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/30 15:23:20 by lucocozz          #+#    #+#              #
-#    Updated: 2023/04/21 15:36:56 by lucocozz         ###   ########.fr        #
+#    Updated: 2023/04/23 17:42:28 by lucocozz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ft_malcolm
 
 SRCS =	main.c					\
+		$(_ARP)					\
+		$(_CLI)					\
 		$(_DISPLAY)				\
 		$(_NETWORK)				\
+		$(_SIGNALS)				\
 		$(_LIBS)
+
+_ARP =	send_arp.c				\
+		recv_arp_from_ip.c		\
+		arp_request.c			\
+		arp_reply.c				\
+		poisoned_arp_request.c
+
+_CLI =	get_cli.c
 
 _DISPLAY =	print_mac_address.c	\
 			print_ip_address.c	\
 			print_ether_arp.c	\
 
-_NETWORK =	mac_str_to_binary.c
+_NETWORK =	mac_str_to_binary.c	\
+			is_ip_address.c		\
+			is_mac_address.c
+
+_SIGNALS =	set_signals.c
 
 _LIBS = libft.c
 
@@ -48,7 +63,11 @@ ifeq ($(DEBUG), on)
 endif
 LDFLAGS = $(LIBS:%=-L lib%) $(LIBS:%=-l%)
 
-vpath %.c	$(addprefix $(SRCS_DIR), /. /libs /display /network)
+vpath %.c	$(addprefix $(SRCS_DIR), /.			\
+				$(addprefix /arp, /.			\
+					$(addprefix /headers, /.	\
+						/poisoned))				\
+				/libs /display /network /cli /signals)
 
 all:
 	$(foreach LIB, ${LIBS}, ${MAKE} -C lib${LIB} ;)

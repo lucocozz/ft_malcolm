@@ -1,5 +1,18 @@
 # ft_malcolm
 
+```
+while (1) {
+	if (is_poisoned() == false)
+		send_poisoned_arp_request();
+	while (1) {
+		if (recv_arp_request() != TIMEOUT)
+			send_poisoned_arp_reply();
+		else
+			break ;
+	}
+}
+```
+
 
 ## Sources
 https://www.rfc-editor.org/rfc/rfc826  
