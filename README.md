@@ -11,3 +11,5 @@ https://linuxconfig.org/how-to-turn-on-off-ip-forwarding-in-linux
 https://github.com/byt3bl33d3r/arpspoof/blob/master/arpspoof/arpspoof.py  
 https://man7.org/linux/man-pages/man7/packet.7.html  
 https://github.com/torvalds/linux/blob/master/net/ipv4/arp.c  
+https://www.practicalnetworking.net/series/arp/gratuitous-arp/  
+https://www.jaacostan.com/2018/04/what-is-gratuitous-arp-how-is-it-used.html

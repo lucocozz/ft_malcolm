@@ -16,7 +16,7 @@ int	arp_poisoning(int sock, t_cli cli)
 {
 	struct ether_arp	packet = {0};
 
-	if (send_arp(sock, cli, poisoned_arp_request) == -1)
+	if (send_arp(sock, cli, unicast_arp_request) == -1)
 		return (EXIT_FAILURE);
 	while (true)
 	{

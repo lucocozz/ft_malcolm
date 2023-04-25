@@ -6,7 +6,7 @@
 #    By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/30 15:23:20 by lucocozz          #+#    #+#              #
-#    Updated: 2023/04/25 13:05:11 by lucocozz         ###   ########.fr        #
+#    Updated: 2023/04/25 15:46:20 by lucocozz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ _ARP =	send_arp.c				\
 		recv_arp_type_from_to.c	\
 		arp_request.c			\
 		arp_reply.c				\
-		poisoned_arp_request.c	\
+		gratuitous_arp_reply.c	\
+		unicast_arp_request.c	\
 		arp_poisoning.c
 
 _CLI =	get_cli.c
@@ -66,9 +67,7 @@ endif
 LDFLAGS = $(LIBS:%=-L lib%) $(LIBS:%=-l%)
 
 vpath %.c	$(addprefix $(SRCS_DIR), /.			\
-				$(addprefix /arp, /.			\
-					$(addprefix /headers, /.	\
-						/poisoned))				\
+				$(addprefix /arp, /. /headers)	\
 				/libs /display /network /cli /signals)
 
 all:

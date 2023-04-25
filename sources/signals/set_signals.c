@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 12:36:43 by lucocozz          #+#    #+#             */
-/*   Updated: 2023/04/23 23:25:32 by lucocozz         ###   ########.fr       */
+/*   Updated: 2023/04/25 15:47:45 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,12 @@ void	set_signals(void)
 
 	action.sa_handler = &sigint_handler;
 	action.sa_flags = SA_ONSTACK;
-	// action.sa_flags = SA_RESTART;
 	if (sigaction(SIGINT, &action, NULL) == -1) {
-		dprintf(STDERR_FILENO, "sigaction(): error\n");
+		dprintf(STDERR_FILENO, "sigaction(SIGINT): error\n");
+		exit(EXIT_FAILURE);
+	}
+	if (sigaction(SIGQUIT, &action, NULL) == -1) {
+		dprintf(STDERR_FILENO, "sigaction(SIGQUIT): error\n");
 		exit(EXIT_FAILURE);
 	}
 }
