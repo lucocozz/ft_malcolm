@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 17:57:48 by lucocozz          #+#    #+#             */
-/*   Updated: 2023/04/23 17:33:30 by lucocozz         ###   ########.fr       */
+/*   Updated: 2023/04/25 13:32:54 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	send_arp(int sock, t_cli cli, void (*fill_header)(struct ether_arp*, t_cli))
 		dprintf(STDERR_FILENO, "sendto(): %s\n", strerror(errno));
 		return (-1);
 	}
-	printf("\nSending Packet:\n");
-	print_ether_arp(packet);
+	printf("Sending: "); print_arp(packet);
+	// print_ether_arp(packet);
 	
 	return (0);
 }

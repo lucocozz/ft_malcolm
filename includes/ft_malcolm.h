@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:42:30 by lucocozz          #+#    #+#             */
-/*   Updated: 2023/04/23 16:33:07 by lucocozz         ###   ########.fr       */
+/*   Updated: 2023/04/25 13:00:47 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,15 +75,15 @@ typedef struct s_cli {
 	char	*target_ip;
 }	t_cli;
 
-extern bool g_running;
+extern volatile sig_atomic_t g_running;
 
 /*  ARP  */
+int		arp_poisoning(int sock, t_cli cli);
 int		send_arp(int sock, t_cli cli, void (*fill_header)(struct ether_arp*, t_cli));
-int		recv_arp_from_ip(int sock, struct ether_arp *packet, const char *from_ip);
+int		recv_arp_type_from_to(int sock, struct ether_arp *packet, int type, const char *from, const char *to);
 void	arp_request(struct ether_arp *packet, t_cli cli);
 void	arp_reply(struct ether_arp *packet, t_cli cli);
 void	poisoned_arp_request(struct ether_arp *packet, t_cli cli);
-
 
 
 /*  Cli  */
@@ -94,6 +94,7 @@ t_cli	get_cli(int argc, char **argv);
 void	print_ether_arp(struct ether_arp packet);
 void	print_mac_address(u_int8_t* mac_address);
 void	print_ip_address(u_int8_t* ip_address);
+void	print_arp(struct ether_arp packet);
 
 
 /*  Network  */

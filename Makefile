@@ -6,7 +6,7 @@
 #    By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/30 15:23:20 by lucocozz          #+#    #+#              #
-#    Updated: 2023/04/23 17:42:28 by lucocozz         ###   ########.fr        #
+#    Updated: 2023/04/25 13:05:11 by lucocozz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,16 +21,18 @@ SRCS =	main.c					\
 		$(_LIBS)
 
 _ARP =	send_arp.c				\
-		recv_arp_from_ip.c		\
+		recv_arp_type_from_to.c	\
 		arp_request.c			\
 		arp_reply.c				\
-		poisoned_arp_request.c
+		poisoned_arp_request.c	\
+		arp_poisoning.c
 
 _CLI =	get_cli.c
 
 _DISPLAY =	print_mac_address.c	\
 			print_ip_address.c	\
 			print_ether_arp.c	\
+			print_arp.c
 
 _NETWORK =	mac_str_to_binary.c	\
 			is_ip_address.c		\
